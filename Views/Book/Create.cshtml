@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model LibraryApp.Models.Book
+
+<div class="container">
+    <div class="text-center">
+        <div class="card col-md-6">
+            <form method="post" asp-action="Create">
+                <div class="card-header">
+                    <h2>Dodaj nowe wydanie</h2>
+                </div>
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row" style="text-align:left">
+                        <div class="col-6">
+                            <label asp-for="Title"></label>
+                            <input asp-for="Title" class="form-control" /><br />
+                        </div>
+
+                        <div class="col-6">
+                            <label asp-for="Author"></label>
+                            <input asp-for="Author" class="form-control" /><br />
+                        </div>
+
+                        <div class="col-6">
+                            <label asp-for="DateRelease"></label>
+                            <input asp-for="DateRelease" class="form-control" /><br />
+                        </div>
+
+                        <div class="col-6">
+                            <label asp-for="ShortDiscription"></label>
+                            <input asp-for="ShortDiscription" class="form-control" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class="btn btn-success" value="Dodaj" />
+                    <a asp-action="Index" class="btn btn-primary">Powrót</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

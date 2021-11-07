@@ -15,5 +15,7 @@ namespace LibraryApp.Data
         }
 
         public DbSet<Book> Library { get; set; }
+
+        public DbSet<Reservesion> Reservesions { get; set; }
     }
 }

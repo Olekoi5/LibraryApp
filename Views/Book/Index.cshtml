@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<LibraryApp.Models.Book>
+
+<div class="container">
+    <div class="text-center text-info">
+        <h2>Dostępne wydania</h2>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Data Wydania</th>
+            <th>Krótki opis</th>
+        </tr>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.DateRelease</td>
+                    <td>@book.ShortDiscription</td>
+                    <td>
+                        <div class="btn btn-group">
+                            <a class="btn btn-success mx-2" asp-route-id="@book.id" asp-controller="Reservesion" asp-action="Create">Rezerwuj</a>
+                            <a class="btn btn-block mx-2" asp-route-id="@book.id" asp-controller="Reservesion" asp-action="Index">Lista Rezerwacji</a>
+                            <a class="btn btn-primary mx-2" asp-route-Id="@book.id" asp-controller="Book" asp-action="Edit">Edytuj</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" asp-controller="Book" asp-action="Create">+ Dodaj Wydanie</a>
+</div>
+

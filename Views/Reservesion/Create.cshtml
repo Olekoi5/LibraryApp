@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model LibraryApp.Models.Reservesion
+
+<div class="container">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="text-center text-success">
+                    Książka zarezerwowana
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>
+                            <div class="text-info">
+                                ID rezerwacji: @Model.id
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-info">
+                                ID użytkownika: @Model.userLogin
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-info">
+                                Data rezerwacji: @Model.DateReservesion
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-info">
+                                Tytuł książki: @Model.bookId.Title
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="btn btn-group">
+                        <a asp-controller="Book" asp-action="Index" class="btn btn-primary mx-2">Powrót</a>
+                        <a class="btn btn-info mx-2" asp-route-id="@Model.bookId.id" asp-controller="Reservesion" asp-action="Index">Lista Rezerwacji</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

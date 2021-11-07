@@ -12,12 +12,15 @@ namespace LibraryApp.Models
         [Key]
         public int id { get; set; }
 
+        [Required(ErrorMessage = "Tytuł jest wymagany")]
         [DisplayName("Tytuł")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Autor jest wymagany")]
         [DisplayName("Autor")]
         public string Author { get; set; }
 
+        [Required(ErrorMessage = "Data wydania jest wymagana")]
         [DisplayName("Data wydania")]
         [DataType(DataType.Date)]
         public DateTime DateRelease { get; set; }
